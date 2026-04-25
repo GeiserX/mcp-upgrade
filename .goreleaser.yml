@@ -40,6 +40,7 @@ brews:
     homepage: "https://github.com/GeiserX/mcp-upgrade"
     description: "Universal upgrade tool for MCP servers"
     license: "GPL-3.0"
+    skip_upload: true
     install: |
       bin.install "mcp-upgrade"
     test: |
