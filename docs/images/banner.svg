@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ADD8"/>
+      <stop offset="100%" stop-color="#007D9C"/>
+    </linearGradient>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="200" rx="12" fill="url(#bg)"/>
+  <rect width="900" height="200" rx="12" fill="url(#grid)"/>
+
+  <!-- Upgrade/Arrow-up icon -->
+  <g transform="translate(100, 100)" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="0" cy="0" r="32" opacity="0.2" fill="white" stroke="none"/>
+    <path d="M 0 16 L 0 -16"/>
+    <path d="M -12 -4 L 0 -16 L 12 -4"/>
+    <path d="M -10 10 L -16 10" opacity="0.6"/>
+    <path d="M 10 10 L 16 10" opacity="0.6"/>
+    <path d="M -14 4 L -20 4" opacity="0.4"/>
+    <path d="M 14 4 L 20 4" opacity="0.4"/>
+  </g>
+
+  <!-- Title -->
+  <text x="450" y="90" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="700" fill="white" letter-spacing="1">mcp-upgrade</text>
+
+  <!-- Subtitle -->
+  <text x="450" y="125" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.85)" letter-spacing="0.5">Universal MCP Server Upgrade Tool</text>
+
+  <!-- Decorative dots -->
+  <g fill="rgba(255,255,255,0.25)">
+    <circle cx="780" cy="50" r="3"/>
+    <circle cx="800" cy="50" r="3"/>
+    <circle cx="820" cy="50" r="3"/>
+    <circle cx="780" cy="70" r="3"/>
+    <circle cx="800" cy="70" r="3"/>
+    <circle cx="820" cy="70" r="3"/>
+    <circle cx="780" cy="90" r="3"/>
+    <circle cx="800" cy="90" r="3"/>
+    <circle cx="820" cy="90" r="3"/>
+    <circle cx="780" cy="110" r="3"/>
+    <circle cx="800" cy="110" r="3"/>
+    <circle cx="820" cy="110" r="3"/>
+    <circle cx="780" cy="130" r="3"/>
+    <circle cx="800" cy="130" r="3"/>
+    <circle cx="820" cy="130" r="3"/>
+    <circle cx="780" cy="150" r="3"/>
+    <circle cx="800" cy="150" r="3"/>
+    <circle cx="820" cy="150" r="3"/>
+  </g>
+</svg>
