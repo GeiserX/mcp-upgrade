@@ -48,6 +48,10 @@ func (c *PyPIChecker) GetLatestVersion(pkg string) (string, error) {
 var versionRegex = regexp.MustCompile(`v?(\d+\.\d+\.\d+)`)
 
 func (c *PyPIChecker) GetCurrentVersion(server *model.Server) (string, error) {
+	if server.Type == model.TypeUVX {
+		return "(auto)", nil
+	}
+
 	// Try pipx list --json first
 	out, err := exec.Command("pipx", "list", "--json").Output()
 	if err == nil {
