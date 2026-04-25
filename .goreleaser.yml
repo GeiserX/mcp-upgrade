@@ -1,0 +1,46 @@
+version: 2
+
+builds:
+  - main: .
+    binary: mcp-upgrade
+    ldflags:
+      - -s -w -X github.com/GeiserX/mcp-upgrade/cmd.version={{.Version}}
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+
+archives:
+  - formats:
+      - tar.gz
+    format_overrides:
+      - goos: windows
+        formats:
+          - zip
+    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+
+checksum:
+  name_template: "checksums.txt"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^ci:"
+
+brews:
+  - repository:
+      owner: GeiserX
+      name: homebrew-tap
+    homepage: "https://github.com/GeiserX/mcp-upgrade"
+    description: "Universal upgrade tool for MCP servers"
+    license: "GPL-3.0"
+    install: |
+      bin.install "mcp-upgrade"
+    test: |
+      system "#{bin}/mcp-upgrade", "version"

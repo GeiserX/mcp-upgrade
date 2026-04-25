@@ -1,0 +1,15 @@
+coverage:
+  status:
+    project:
+      default:
+        target: 90%
+    patch:
+      default:
+        target: 90%
+  precision: 2
+  round: down
+
+ignore:
+  - "cmd/"
+  - "main.go"
+  - "**/*_test.go"
