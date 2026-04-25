@@ -14,9 +14,9 @@ jobs:
         os: [ubuntu-latest, macos-latest]
         go-version: ["stable"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v6
         with:
           go-version: ${{ matrix.go-version }}
 
@@ -28,7 +28,7 @@ jobs:
 
       - name: Upload coverage
         if: matrix.os == 'ubuntu-latest'
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v6
         with:
           files: coverage.out
           token: ${{ secrets.CODECOV_TOKEN }}
@@ -36,12 +36,12 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v6
         with:
           go-version: "stable"
 
-      - uses: golangci/golangci-lint-action@v6
+      - uses: golangci/golangci-lint-action@v9
         with:
           version: latest

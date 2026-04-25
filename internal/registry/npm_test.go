@@ -18,9 +18,9 @@ func TestNPMChecker_GetLatestVersion(t *testing.T) {
 		}
 		switch path {
 		case "/@modelcontextprotocol%2Fserver-filesystem/latest":
-			json.NewEncoder(w).Encode(npmLatestResponse{Version: "2.1.0"})
+			_ = json.NewEncoder(w).Encode(npmLatestResponse{Version: "2.1.0"})
 		case "/typescript/latest":
-			json.NewEncoder(w).Encode(npmLatestResponse{Version: "5.8.3"})
+			_ = json.NewEncoder(w).Encode(npmLatestResponse{Version: "5.8.3"})
 		default:
 			http.NotFound(w, r)
 		}

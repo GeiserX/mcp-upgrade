@@ -46,7 +46,7 @@ func (u *GitHubReleaseUpgrader) Upgrade(server *model.Server) error {
 	if err != nil {
 		return fmt.Errorf("failed to create temp dir: %w", err)
 	}
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 
 	dlPath := filepath.Join(tmpDir, assetName)
 	if err := downloadFile(downloadURL, dlPath); err != nil {
@@ -101,7 +101,7 @@ func fetchReleaseAssets(repo string) ([]string, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if resp.StatusCode != http.StatusOK {
 		return nil, fmt.Errorf("GitHub API returned %d", resp.StatusCode)
@@ -124,7 +124,7 @@ func downloadFile(url, dest string) error {
 	if err != nil {
 		return err
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if resp.StatusCode != http.StatusOK {
 		return fmt.Errorf("download returned %d", resp.StatusCode)
@@ -134,7 +134,7 @@ func downloadFile(url, dest string) error {
 	if err != nil {
 		return err
 	}
-	defer f.Close()
+	defer func() { _ = f.Close() }()
 
 	_, err = io.Copy(f, resp.Body)
 	return err
@@ -149,13 +149,13 @@ func copyFile(src, dst string) error {
 	if err != nil {
 		return err
 	}
-	defer in.Close()
+	defer func() { _ = in.Close() }()
 
 	out, err := os.Create(dst)
 	if err != nil {
 		return err
 	}
-	defer out.Close()
+	defer func() { _ = out.Close() }()
 
 	_, err = io.Copy(out, in)
 	return err

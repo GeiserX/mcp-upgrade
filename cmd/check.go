@@ -29,7 +29,7 @@ func runCheck(cmd *cobra.Command, args []string) error {
 
 	detect.DetectAll(result.Servers)
 	detect.ResolveMetadata(result.Servers)
-	registry.CheckAll(result.Servers)
+	_ = registry.CheckAll(result.Servers)
 
 	if jsonOut {
 		enc := json.NewEncoder(os.Stdout)
@@ -48,7 +48,7 @@ func printCheckTable(servers []model.Server) {
 	blue := color.New(color.FgBlue, color.Bold)
 	cyan := color.New(color.FgCyan)
 
-	blue.Printf("\n  MCP Server Status\n\n")
+	_, _ = blue.Printf("\n  MCP Server Status\n\n")
 
 	table := tablewriter.NewTable(os.Stdout)
 	table.Header("Server", "Type", "Current", "Latest", "Status")
@@ -86,10 +86,10 @@ func printCheckTable(servers []model.Server) {
 			statusStr = "UNKNOWN"
 		}
 
-		table.Append(s.Name, string(s.Type), cur, lat, statusStr)
+		_ = table.Append(s.Name, string(s.Type), cur, lat, statusStr)
 	}
 
-	table.Render()
+	_ = table.Render()
 
 	fmt.Printf("\n  %s upgradable, %s up-to-date, %s auto-latest, %s skipped",
 		yellow.Sprintf("%d", upgradable),

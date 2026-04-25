@@ -39,7 +39,7 @@ func runUpgrade(cmd *cobra.Command, args []string) error {
 
 	detect.DetectAll(result.Servers)
 	detect.ResolveMetadata(result.Servers)
-	registry.CheckAll(result.Servers)
+	_ = registry.CheckAll(result.Servers)
 
 	targets := result.Servers
 	if len(args) > 0 {
@@ -76,10 +76,10 @@ func runUpgrade(cmd *cobra.Command, args []string) error {
 		fmt.Printf("\n  Dry run complete. Use 'mcp-upgrade upgrade' to apply changes.\n\n")
 	} else {
 		if upgraded > 0 {
-			green.Printf("\n  %d server(s) upgraded.", upgraded)
+			_, _ = green.Printf("\n  %d server(s) upgraded.", upgraded)
 		}
 		if failed > 0 {
-			red.Printf(" %d failed.", failed)
+			_, _ = red.Printf(" %d failed.", failed)
 		}
 		if skipped > 0 {
 			fmt.Printf(" %d skipped.", skipped)
