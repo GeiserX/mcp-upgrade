@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/images/banner.svg" alt="mcp-upgrade banner" width="900"/>
+</p>
+
 # mcp-upgrade
 
 Universal upgrade tool for [MCP](https://modelcontextprotocol.io/) (Model Context Protocol) servers across all AI coding clients and package ecosystems.
