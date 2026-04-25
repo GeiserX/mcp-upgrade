@@ -36,7 +36,7 @@ func (c *NPMChecker) GetLatestVersion(pkg string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("npm registry request failed: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if resp.StatusCode != http.StatusOK {
 		return "", fmt.Errorf("npm registry returned %d for %s", resp.StatusCode, pkg)

@@ -31,7 +31,7 @@ func (c *PyPIChecker) GetLatestVersion(pkg string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("pypi request failed: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if resp.StatusCode != http.StatusOK {
 		return "", fmt.Errorf("pypi returned %d for %s", resp.StatusCode, pkg)
