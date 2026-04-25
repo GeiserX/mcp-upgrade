@@ -22,7 +22,7 @@ No AI coding client has built-in MCP server upgrade commands. `mcp-upgrade` fill
 ### Homebrew
 
 ```bash
-brew install GeiserX/tap/mcp-upgrade
+brew install GeiserX/mcp-upgrade/mcp-upgrade
 ```
 
 ### Go
