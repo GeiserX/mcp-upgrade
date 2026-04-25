@@ -36,7 +36,7 @@ changelog:
 brews:
   - repository:
       owner: GeiserX
-      name: homebrew-tap
+      name: homebrew-mcp-upgrade
     homepage: "https://github.com/GeiserX/mcp-upgrade"
     description: "Universal upgrade tool for MCP servers"
     license: "GPL-3.0"
