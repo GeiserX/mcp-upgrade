@@ -11,13 +11,13 @@ func TestPyPIChecker_GetLatestVersion(t *testing.T) {
 	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case "/pypi/mcp/json":
-			json.NewEncoder(w).Encode(pypiResponse{
+			_ = json.NewEncoder(w).Encode(pypiResponse{
 				Info: struct {
 					Version string `json:"version"`
 				}{Version: "1.9.2"},
 			})
 		case "/pypi/uvx/json":
-			json.NewEncoder(w).Encode(pypiResponse{
+			_ = json.NewEncoder(w).Encode(pypiResponse{
 				Info: struct {
 					Version string `json:"version"`
 				}{Version: "0.5.1"},

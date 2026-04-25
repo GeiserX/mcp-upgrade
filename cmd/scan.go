@@ -35,7 +35,7 @@ func runScan(cmd *cobra.Command, args []string) error {
 	}
 
 	blue := color.New(color.FgBlue, color.Bold)
-	blue.Printf("\nFound %d client(s), %d server(s)\n\n", len(result.Clients), len(result.Servers))
+	_, _ = blue.Printf("\nFound %d client(s), %d server(s)\n\n", len(result.Clients), len(result.Servers))
 
 	if len(result.Clients) > 0 {
 		fmt.Println("Clients:")
@@ -58,9 +58,9 @@ func runScan(cmd *cobra.Command, args []string) error {
 		if pkg == "" {
 			pkg = "-"
 		}
-		table.Append(s.Name, string(s.Type), pkg, s.Client)
+		_ = table.Append(s.Name, string(s.Type), pkg, s.Client)
 	}
 
-	table.Render()
+	_ = table.Render()
 	return nil
 }

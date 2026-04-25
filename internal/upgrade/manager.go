@@ -55,9 +55,9 @@ func (m *Manager) UpgradeAll(servers []model.Server) (upgraded, failed, skipped 
 		}
 
 		if m.DryRun {
-			yellow.Printf("  [DRY-RUN] Would upgrade %s (%s)", s.Name, s.Type)
+			_, _ = yellow.Printf("  [DRY-RUN] Would upgrade %s (%s)", s.Name, s.Type)
 			if s.CurrentVersion != "" && s.LatestVersion != "" {
-				cyan.Printf(" %s -> %s", s.CurrentVersion, s.LatestVersion)
+				_, _ = cyan.Printf(" %s -> %s", s.CurrentVersion, s.LatestVersion)
 			}
 			fmt.Println()
 			upgraded++
@@ -66,10 +66,10 @@ func (m *Manager) UpgradeAll(servers []model.Server) (upgraded, failed, skipped 
 
 		fmt.Printf("  Upgrading %s ...", s.Name)
 		if err := upgrader.Upgrade(s); err != nil {
-			red.Printf(" FAILED: %s\n", err)
+			_, _ = red.Printf(" FAILED: %s\n", err)
 			failed++
 		} else {
-			green.Println(" OK")
+			_, _ = green.Println(" OK")
 			upgraded++
 		}
 	}

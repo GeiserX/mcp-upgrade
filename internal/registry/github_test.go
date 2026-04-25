@@ -11,7 +11,7 @@ func TestGitHubChecker_GetLatestVersion(t *testing.T) {
 	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case "/repos/mark3labs/mcp-go/releases/latest":
-			json.NewEncoder(w).Encode(githubReleaseResponse{TagName: "v0.26.0"})
+			_ = json.NewEncoder(w).Encode(githubReleaseResponse{TagName: "v0.26.0"})
 		case "/repos/ratelimited/repo/releases/latest":
 			w.Header().Set("X-RateLimit-Remaining", "0")
 			w.WriteHeader(http.StatusForbidden)
