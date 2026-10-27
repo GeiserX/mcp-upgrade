@@ -4,6 +4,8 @@
 
 # mcp-upgrade
 
+> **Archived (October 2026).** This tool tried to upgrade every MCP server on a machine with one command. That is the wrong model: `npx -y pkg` and `uvx pkg` already resolve the newest version at each launch, and the real risk is an unreviewed update that changes what a tool tells the agent. Pin an exact version in each client config (`pkg@1.2.3`, `pkg==1.2.3` for uvx) and bump it through a reviewed pull request, as you would any dependency. The Homebrew tap never held a formula; the last binaries are v0.1.2 on the releases page.
+
 Universal upgrade tool for [MCP](https://modelcontextprotocol.io/) (Model Context Protocol) servers across all AI coding clients and package ecosystems.
 
 No AI coding client has built-in MCP server upgrade commands. `mcp-upgrade` fills that gap — it auto-discovers your servers, checks for updates, and upgrades them.
